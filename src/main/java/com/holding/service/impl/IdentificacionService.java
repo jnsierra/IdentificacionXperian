@@ -6,7 +6,9 @@
 package com.holding.service.impl;
 
 import co.com.prueba.DatosValidacionRequest;
+import co.com.prueba.RespuestasRequest;
 import co.com.prueba.ServicioIdentificacion;
+import co.com.prueba.SolicitudCuestionarioRequest;
 import com.holding.service.IIdentificacionService;
 import com.holding.testdatacredito.SignaturePwdClientCallBackHandler;
 import java.util.Optional;
@@ -58,4 +60,28 @@ public class IdentificacionService implements IIdentificacionService {
             return Optional.empty();
         }
     }
+    @Override
+    public Optional< String > getQuestions(SolicitudCuestionarioRequest solicitudCuestionarioRequest){
+        try {
+            String _preguntas_return = port.preguntas("ODAwODkyMzA=",_validar_paramProducto, _validar_producto, _validar_canal, solicitudCuestionarioRequest);
+            return Optional.of(_preguntas_return);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
+        }
+    }
+    
+    @Override
+    public Optional< String > getVerify(RespuestasRequest respuestas){
+        try {
+            String _preguntas_return = port.verificar(_validar_canal, _validar_producto, _validar_producto, respuestas);
+            return Optional.of(_preguntas_return);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
+        }
+    }
+    
+    
+  
 }

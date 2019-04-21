@@ -30,43 +30,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CustomConsultarDatosLocalizacion }
-     * 
-     */
-    public CustomConsultarDatosLocalizacion createCustomConsultarDatosLocalizacion() {
-        return new CustomConsultarDatosLocalizacion();
-    }
-
-    /**
-     * Create an instance of {@link CustomConsultarDatosLocalizacion.Conf }
-     * 
-     */
-    public CustomConsultarDatosLocalizacion.Conf createCustomConsultarDatosLocalizacionConf() {
-        return new CustomConsultarDatosLocalizacion.Conf();
-    }
-
-    /**
-     * Create an instance of {@link CustomConsultarDatosLocalizacionResponse }
-     * 
-     */
-    public CustomConsultarDatosLocalizacionResponse createCustomConsultarDatosLocalizacionResponse() {
-        return new CustomConsultarDatosLocalizacionResponse();
-    }
-
-    /**
      * Create an instance of {@link ConsultarDatosLocalizacion.Solicitud.SolicitudDatosLocalizacion }
      * 
      */
     public ConsultarDatosLocalizacion.Solicitud.SolicitudDatosLocalizacion createConsultarDatosLocalizacionSolicitudSolicitudDatosLocalizacion() {
         return new ConsultarDatosLocalizacion.Solicitud.SolicitudDatosLocalizacion();
-    }
-
-    /**
-     * Create an instance of {@link ConsultarDatosLocalizacionResponse }
-     * 
-     */
-    public ConsultarDatosLocalizacionResponse createConsultarDatosLocalizacionResponse() {
-        return new ConsultarDatosLocalizacionResponse();
     }
 
     /**
@@ -94,27 +62,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ServicioLocalizacionException }
+     * Create an instance of {@link CustomConsultarDatosLocalizacion.Conf.Params }
      * 
      */
-    public ServicioLocalizacionException createServicioLocalizacionException() {
-        return new ServicioLocalizacionException();
+    public CustomConsultarDatosLocalizacion.Conf.Params createCustomConsultarDatosLocalizacionConfParams() {
+        return new CustomConsultarDatosLocalizacion.Conf.Params();
     }
 
     /**
-     * Create an instance of {@link ConsultarDatosLocalizacion }
+     * Create an instance of {@link CustomConsultarDatosLocalizacion.Conf }
      * 
      */
-    public ConsultarDatosLocalizacion createConsultarDatosLocalizacion() {
-        return new ConsultarDatosLocalizacion();
-    }
-
-    /**
-     * Create an instance of {@link Business }
-     * 
-     */
-    public Business createBusiness() {
-        return new Business();
+    public CustomConsultarDatosLocalizacion.Conf createCustomConsultarDatosLocalizacionConf() {
+        return new CustomConsultarDatosLocalizacion.Conf();
     }
 
     /**
@@ -126,14 +86,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Fault }
-     * 
-     */
-    public Fault createFault() {
-        return new Fault();
-    }
-
-    /**
      * Create an instance of {@link Runtime }
      * 
      */
@@ -142,11 +94,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CustomConsultarDatosLocalizacion.Conf.Params }
+     * Create an instance of {@link Business }
      * 
      */
-    public CustomConsultarDatosLocalizacion.Conf.Params createCustomConsultarDatosLocalizacionConfParams() {
-        return new CustomConsultarDatosLocalizacion.Conf.Params();
+    public Business createBusiness() {
+        return new Business();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarDatosLocalizacionResponse }
+     * 
+     */
+    public ConsultarDatosLocalizacionResponse createConsultarDatosLocalizacionResponse() {
+        return new ConsultarDatosLocalizacionResponse();
+    }
+
+    /**
+     * Create an instance of {@link ServicioLocalizacionException }
+     * 
+     */
+    public ServicioLocalizacionException createServicioLocalizacionException() {
+        return new ServicioLocalizacionException();
+    }
+
+    /**
+     * Create an instance of {@link Fault }
+     * 
+     */
+    public Fault createFault() {
+        return new Fault();
+    }
+
+    /**
+     * Create an instance of {@link CustomConsultarDatosLocalizacion }
+     * 
+     */
+    public CustomConsultarDatosLocalizacion createCustomConsultarDatosLocalizacion() {
+        return new CustomConsultarDatosLocalizacion();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarDatosLocalizacion }
+     * 
+     */
+    public ConsultarDatosLocalizacion createConsultarDatosLocalizacion() {
+        return new ConsultarDatosLocalizacion();
     }
 
     /**
@@ -155,6 +147,14 @@ public class ObjectFactory {
      */
     public CustomConsultarDatosLocalizacion.Conf.Params.Param createCustomConsultarDatosLocalizacionConfParamsParam() {
         return new CustomConsultarDatosLocalizacion.Conf.Params.Param();
+    }
+
+    /**
+     * Create an instance of {@link CustomConsultarDatosLocalizacionResponse }
+     * 
+     */
+    public CustomConsultarDatosLocalizacionResponse createCustomConsultarDatosLocalizacionResponse() {
+        return new CustomConsultarDatosLocalizacionResponse();
     }
 
 }

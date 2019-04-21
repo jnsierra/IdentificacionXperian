@@ -5,12 +5,11 @@
  */
 package com.holding.rest;
 
-import co.com.prueba.DatosValidacionRequest;
 import com.holding.dto.DatosValidacionRequestDto;
+import com.holding.dto.RespuestasRequestDto;
+import com.holding.dto.SolicitudCuestionarioRequestDto;
 import com.holding.service.IFacadeIdentiService;
-import com.holding.service.IIdentificacionService;
 import java.util.Optional;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +28,27 @@ public class IdentificacionController {
     @Autowired
     IFacadeIdentiService facadeIdentiService;
     
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST, produces = "application/json")
     public ResponseEntity<String> getValidarIdentidad(@RequestBody DatosValidacionRequestDto datosValidar){
         Optional<String> json = facadeIdentiService.getValidateIdentity(datosValidar);
+        if(!json.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(json.get(),HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/questions", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String> getQuestions(@RequestBody SolicitudCuestionarioRequestDto solicitud){
+        Optional<String> json = facadeIdentiService.getQuestions(solicitud);
+        if(!json.isPresent()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(json.get(),HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/verify", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<String> getVerify(@RequestBody RespuestasRequestDto respuesta){
+        Optional<String> json = facadeIdentiService.getVerify(respuesta);
         if(!json.isPresent()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

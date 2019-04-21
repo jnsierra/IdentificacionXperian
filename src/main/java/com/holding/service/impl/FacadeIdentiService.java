@@ -6,13 +6,18 @@
 package com.holding.service.impl;
 
 import co.com.prueba.DatosValidacionRequest;
+import co.com.prueba.RespuestasRequest;
+import co.com.prueba.SolicitudCuestionarioRequest;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.holding.dto.DatosValidacionRequestDto;
+import com.holding.dto.RespuestasRequestDto;
+import com.holding.dto.SolicitudCuestionarioRequestDto;
 import com.holding.service.IFacadeIdentiService;
 import com.holding.service.IIdentificacionService;
 import java.util.Optional;
+import org.json.JSONObject;
+import org.json.XML;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,15 +66,37 @@ public class FacadeIdentiService implements IFacadeIdentiService {
     public String xmlToJson(String xml) {
         String json = null;
         try {
-            
-            XmlMapper xmlMapper = new XmlMapper();
-
-            JsonNode node = xmlMapper.readTree(xml.getBytes());
-            ObjectMapper jsonMapper = new ObjectMapper();
-            json = jsonMapper.writeValueAsString(node);
+            JSONObject xmlJSONObj = XML.toJSONObject(xml);
+            json = xmlJSONObj.toString(4);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return json;
+    }
+
+    @Override
+    public Optional<String> getQuestions(SolicitudCuestionarioRequestDto solicitudCuestionarioRequestDto) {
+        String json = null;
+        //Mapeamos el objeto necesario para llamar el web service y llamamos el mismo
+        Optional<String> xmlResponse = identificacionService.getQuestions(mapper.map(solicitudCuestionarioRequestDto, SolicitudCuestionarioRequest.class));
+        if (!xmlResponse.isPresent()) {
+            return Optional.empty();
+        }
+        //Remplazamos los caracteres invalidos
+        String xmlAux = replaceXml(xmlResponse.get());
+        return Optional.of(xmlToJson(xmlAux));
+    }
+
+    @Override
+    public Optional<String> getVerify(RespuestasRequestDto respuestas) {
+        String json = null;
+        //Mapeamos el objeto necesario para llamar el web service y llamamos el mismo
+        Optional<String> xmlResponse = identificacionService.getVerify(mapper.map(respuestas, RespuestasRequest.class));
+        if (!xmlResponse.isPresent()) {
+            return Optional.empty();
+        }
+        //Remplazamos los caracteres invalidos
+        String xmlAux = replaceXml(xmlResponse.get());
+        return Optional.of(xmlToJson(xmlAux));
     }
 }

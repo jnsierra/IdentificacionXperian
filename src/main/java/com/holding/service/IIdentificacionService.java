@@ -6,6 +6,8 @@
 package com.holding.service;
 
 import co.com.prueba.DatosValidacionRequest;
+import co.com.prueba.RespuestasRequest;
+import co.com.prueba.SolicitudCuestionarioRequest;
 import java.util.Optional;
 
 /**
@@ -18,5 +20,17 @@ public interface IIdentificacionService {
      * @return 
      */
     Optional<String> getValidateIdentificacion(DatosValidacionRequest _validar_datosValidacion);
+    /**
+     * Metodo con el cual solicito las preguntas de validacion 
+     * @param solicitudCuestionarioRequest
+     * @return 
+     */
+    Optional< String > getQuestions(SolicitudCuestionarioRequest solicitudCuestionarioRequest);
+    /**
+     * Metodo con el cual se debe verificar la autenticidad de las preguntas respondidas
+     * @param respuestas
+     * @return 
+     */
+    Optional< String > getVerify(RespuestasRequest respuestas);
     
 }
